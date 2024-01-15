@@ -16,7 +16,7 @@ const foodElement = document.getElementById('favoriteFoods');
 const pictureElement = document.querySelector('picture');
 
 const imageElement = document.createElement('img');
-imageElement.setAttribute('src', 'images/Me.jpg');
+imageElement.setAttribute('src', 'w02-task/images/Me.jpg');
 imageElement.setAttribute('alt', 'Description of image');
 
 pictureElement.appendChild(imageElement);
