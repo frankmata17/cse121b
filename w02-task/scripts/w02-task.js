@@ -5,7 +5,7 @@
 /* Step 2 - Variables */
 let fullName = 'Francisco Mata';
 let currentYear = new Date().getFullYear();
-const profilePicture = 'images/Me.jpg';
+const profilePicture = 'w02-task/images/Me.jpg';
 
 
 /* Step 3 - Element Variables */
