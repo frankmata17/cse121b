@@ -5,7 +5,7 @@
 /* Step 2 - Variables */
 let fullName = 'Francisco Mata';
 let currentYear = new Date().getFullYear();
-const profilePicture = 'w02-task/images/Me.jpg';
+const profilePicture = 'images/Me.jpg';
 
 
 /* Step 3 - Element Variables */
@@ -16,7 +16,7 @@ const foodElement = document.getElementById('favoriteFoods');
 const pictureElement = document.querySelector('picture');
 
 const imageElement = document.createElement('img');
-imageElement.setAttribute('src', 'w02-task/images/Me.jpg');
+imageElement.setAttribute('src', 'images/Me.jpg');
 imageElement.setAttribute('alt', 'Description of image');
 
 pictureElement.appendChild(imageElement);
