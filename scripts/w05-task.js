@@ -1,14 +1,10 @@
-/* W05: Programming Tasks */
-
-/* Declare and initialize global variables */
 let templeList = [];
 let templesElement;
 
-/* async displayTemples Function */
-
 const displayTemples = (temples) => {
     temples.forEach((temple) => {
-        const article = document.createElement("article");
+        const card = document.createElement("div");
+        card.classList.add("temple-card"); // Add a class for styling
 
         const h3 = document.createElement("h3");
         h3.textContent = temple.templeName;
@@ -16,11 +12,13 @@ const displayTemples = (temples) => {
         const img = document.createElement("img");
         img.src = temple.imageUrl;
         img.alt = temple.location;
+        img.width = 200;
+        img.height = 150;
 
-        article.appendChild(h3);
-        article.appendChild(img);
+        card.appendChild(h3);
+        card.appendChild(img);
 
-        templesElement.appendChild(article);
+        templesElement.appendChild(card);
     });
 };
 
@@ -31,10 +29,6 @@ const createTemplesElement = () => {
     return newElement;
 };
 
-
-
-/* async getTemples Function using fetch()*/
-
 const getTemples = async () => {
     templesElement = document.getElementById("templesElement") || createTemplesElement();
 
@@ -43,14 +37,10 @@ const getTemples = async () => {
     displayTemples(templeList);
 };
 
-/* reset Function */
-
 const reset = () => {
     templesElement = document.getElementById("templesElement") || createTemplesElement();
     templesElement.innerHTML = "";
 };
-
-/* filterTemples Function */
 
 const filterTemples = (temples) => {
     reset();
@@ -74,7 +64,5 @@ const filterTemples = (temples) => {
     }
 };
 
-
-/* Event Listener */
 document.getElementById("filtered").addEventListener("change", () => filterTemples(templeList));
 getTemples();
