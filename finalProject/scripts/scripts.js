@@ -1,6 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     const searchButton = document.getElementById('searchButton');
+    const ingredientInput = document.getElementById('ingredientInput');
+
     searchButton.addEventListener('click', searchRecipes);
+    ingredientInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            searchRecipes();
+        }
+    });
 });
 
 async function searchRecipes() {
@@ -45,10 +52,24 @@ function displayRecipes(recipes) {
             listItem.textContent = ingredient.original;
             ingredientsList.appendChild(listItem);
         });
+        const instructions = document.createElement('p');
+        instructions.textContent = recipe.instructions;
+
+        const additionalInfo = document.createElement('div');
+        // Check if preparationMinutes and cookingMinutes exist before displaying them
+        if (recipe.preparationMinutes !== undefined) {
+            additionalInfo.innerHTML += `<p>Preparation Time: ${recipe.preparationMinutes} minutes</p>`;
+        }
+
+        if (recipe.cookingMinutes !== undefined) {
+            additionalInfo.innerHTML += `<p>Cooking Time: ${recipe.cookingMinutes} minutes</p>`;
+        }
 
         recipeCard.appendChild(title);
         recipeCard.appendChild(image);
         recipeCard.appendChild(ingredientsList);
+        recipeCard.appendChild(instructions);
+        recipeCard.appendChild(additionalInfo);
 
         recipeListContainer.appendChild(recipeCard);
     });
